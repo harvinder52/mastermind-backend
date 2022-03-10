@@ -21,7 +21,7 @@ public class RequestController{
 	@CrossOrigin("http://localhost:3000")
 	@PostMapping("/verifyGuess")
     public ArrayList < Character > verifyGuess(@RequestBody int[] guess) {
-		int[] code = {2,3,4,5};
+		int[] code = {2,3,3,1};
 		  ArrayList < Character > hints = new ArrayList < > ();
 	 ArrayList < Integer > list = new ArrayList < > ();
 	 
@@ -34,7 +34,7 @@ public class RequestController{
 		for (int i = 0; i < guess.length; i++) {
 
             if (code[i] == guess[i]) {
-                System.out.print('-');
+                
                 hints.add('-');
                 list.set(i, 9);
 
@@ -43,9 +43,9 @@ public class RequestController{
 		 for (int i = 0; i < guess.length; i++) {
 
              if (list.contains(guess[i]) && (code[i] != guess[i])) { //1232
-                 System.out.print("+");
+                
                  hints.add('+');
-                 list.set(list.indexOf(code[i]), 9);
+                 list.set(list.indexOf(guess[i]), 9);
 
              }
 
